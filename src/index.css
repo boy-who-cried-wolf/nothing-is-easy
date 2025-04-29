@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.sunset-bg {
+  background: linear-gradient(to top, #ff8c00, #ffd700);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a5f3fc 0%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.image-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center items-start;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.image-container {
+  @apply w-full max-w-[280px] aspect-[3/4] relative overflow-hidden;
+}
+
+.image-hover-effect {
+  @apply transition-all duration-500 h-full;
+}
+
+.image-hover-effect:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.image-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent 
+         opacity-0 transition-opacity duration-300;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-caption {
+  @apply absolute bottom-0 left-0 right-0 text-white text-center py-4 px-2
+         transform translate-y-full transition-transform duration-300;
+}
+
+.image-container:hover .image-caption {
+  transform: translateY(0);
+}
+
+.slogan-text {
+  @apply transition-all duration-300 cursor-default;
+}
+
+.slogan-text:hover {
+  @apply text-transparent bg-clip-text;
+  background-image: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  transform: translateY(-2px);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
