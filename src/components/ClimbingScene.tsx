@@ -4,7 +4,32 @@ import climber2 from '../images/Screenshot_18.png';
 
 const ClimbingScene: React.FC = () => {
   return (
-    <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-sky-200 via-sky-100 to-sky-50">
+    <div className="min-h-screen w-full relative overflow-hidden modern-gradient">
+      {/* Animated Background Circles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Large floating circles */}
+        <div className="floating-circle circle-1 absolute -top-[200px] -left-[200px]" />
+        <div className="floating-circle circle-2 absolute top-[40%] -right-[300px]" />
+        <div className="floating-circle circle-3 absolute -bottom-[250px] left-[20%]" />
+        
+        {/* Additional blur circles for depth */}
+        <div className="blur-circle pulse-circle absolute w-72 h-72 top-[20%] left-[30%]"
+             style={{
+               background: 'radial-gradient(circle, rgba(165, 180, 252, 0.4) 0%, rgba(165, 180, 252, 0.1) 70%)',
+               animationDelay: '-5s'
+             }} />
+        <div className="blur-circle pulse-circle absolute w-96 h-96 bottom-[30%] right-[25%]"
+             style={{
+               background: 'radial-gradient(circle, rgba(147, 197, 253, 0.3) 0%, rgba(147, 197, 253, 0.1) 70%)',
+               animationDelay: '-8s'
+             }} />
+        <div className="blur-circle pulse-circle absolute w-64 h-64 top-[60%] left-[15%]"
+             style={{
+               background: 'radial-gradient(circle, rgba(167, 243, 208, 0.3) 0%, rgba(167, 243, 208, 0.1) 70%)',
+               animationDelay: '-12s'
+             }} />
+      </div>
+
       {/* Content Container */}
       <div className="relative container mx-auto px-4 py-12 md:py-20">
         {/* Text Section */}
@@ -37,7 +62,7 @@ const ClimbingScene: React.FC = () => {
         </div>
 
         {/* Image Grid */}
-        <div className="image-grid">
+        <div className="image-grid relative z-20">
           {/* First Image - Climber */}
           <div className="image-container opacity-0 animate-scale-in" style={{ animationDelay: '1.2s' }}>
             <div className="image-hover-effect rounded-lg overflow-hidden">
@@ -70,11 +95,6 @@ const ClimbingScene: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="absolute w-full h-full bg-gradient-radial from-transparent via-white/20 to-white/40 opacity-50" />
       </div>
     </div>
   );

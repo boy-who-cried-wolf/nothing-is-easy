@@ -27,6 +27,96 @@ code {
   background-clip: text;
 }
 
+.modern-gradient {
+  background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(50px, 50px) scale(1.05);
+  }
+  50% {
+    transform: translate(100px, 0) scale(1);
+  }
+  75% {
+    transform: translate(50px, -50px) scale(0.95);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-50px, 50px) scale(0.95);
+  }
+  50% {
+    transform: translate(-100px, 0) scale(1);
+  }
+  75% {
+    transform: translate(-50px, -50px) scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.circle-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.4) 0%, rgba(147, 197, 253, 0.1) 70%);
+  animation: floatSlow 30s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+.circle-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(167, 243, 208, 0.4) 0%, rgba(167, 243, 208, 0.1) 70%);
+  animation: floatReverse 25s ease-in-out infinite;
+  filter: blur(50px);
+}
+
+.circle-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(199, 210, 254, 0.4) 0%, rgba(199, 210, 254, 0.1) 70%);
+  animation: floatSlow 35s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+.pulse-circle {
+  animation: pulse 10s ease-in-out infinite;
+}
+
 .image-grid {
   @apply grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center items-start;
   max-width: 800px;
@@ -70,7 +160,7 @@ code {
 
 .slogan-text:hover {
   @apply text-transparent bg-clip-text;
-  background-image: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  background-image: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   transform: translateY(-2px);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
